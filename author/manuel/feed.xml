@@ -1,0 +1,1518 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator>
+  <link href="https://manuelvivo.dev/author/manuel/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://manuelvivo.dev/" rel="alternate" type="text/html" />
+  <updated>2022-01-24T09:57:04+00:00</updated>
+  <id>https://manuelvivo.dev/author/manuel/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Manuel Vivo .dev | </title>
+  
+
+  
+    <subtitle>A place where you can learn about Android development</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Rebuilding our guide to app architecture</title>
+      <link href="https://manuelvivo.dev/new-app-architecture" rel="alternate" type="text/html" title="Rebuilding our guide to app architecture" />
+      <published>2021-12-14T00:00:00+00:00</published>
+      <updated>2021-12-14T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/new-app-architecture</id>
+      <content type="html" xml:base="https://manuelvivo.dev/new-app-architecture">&lt;p&gt;We just launched a revamped guide to app architecture.&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;As Android apps grow in size, it’s important to design the code with an architecture in place to allow the app to &lt;strong&gt;scale&lt;/strong&gt;, improve &lt;strong&gt;quality&lt;/strong&gt; and &lt;strong&gt;robustness&lt;/strong&gt;, and make it &lt;strong&gt;easier to test&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;An app architecture defines the &lt;strong&gt;boundaries&lt;/strong&gt; between parts of the app and the &lt;strong&gt;responsibilities&lt;/strong&gt; each part should have. This favors the &lt;a href=&quot;https://en.wikipedia.org/wiki/Separation_of_concerns&quot;&gt;separation of concerns&lt;/a&gt; principle that enables the aforementioned benefits.&lt;/p&gt;
+
+&lt;p&gt;In response to community demand for up-to-date guidance on app architecture, &lt;strong&gt;we’re launching a &lt;a href=&quot;https://developer.android.com/jetpack/guide&quot;&gt;revamped guide to app architecture&lt;/a&gt;&lt;/strong&gt;. This includes best practices and recommended architecture for building robust, high-quality apps. It also provides a page for each layer of the recommended architecture: &lt;a href=&quot;https://developer.android.com/jetpack/guide/ui-layer&quot;&gt;UI&lt;/a&gt;, &lt;a href=&quot;https://developer.android.com/jetpack/guide/domain-layer&quot;&gt;domain&lt;/a&gt;, and &lt;a href=&quot;https://developer.android.com/jetpack/guide/data-layer&quot;&gt;data&lt;/a&gt; layers. Within them, you’ll find deep dives into more complex topics, such as how to handle &lt;a href=&quot;https://developer.android.com/jetpack/guide/ui-layer/events&quot;&gt;UI events&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Each Android app should have at least two layers:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;a href=&quot;https://developer.android.com/jetpack/guide/ui-layer&quot;&gt;UI layer&lt;/a&gt; that displays application data on the screen.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;a href=&quot;https://developer.android.com/jetpack/guide/data-layer&quot;&gt;data layer&lt;/a&gt; that contains the business logic of your app and exposes application data.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can add an additional layer called the &lt;a href=&quot;https://developer.android.com/jetpack/guide/domain-layer&quot;&gt;domain layer&lt;/a&gt; to simplify and reuse the interactions between the UI and data layers.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img width=&quot;800&quot; src=&quot;assets/images/2021-12-14-new-app-architecture_2.png&quot; /&gt;
+  &lt;small&gt;General diagram of a typical app architecture. The UI layer gets the application data from the optional domain layer, or the data layer, that exposes application data.&lt;/small&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We have created a &lt;a href=&quot;https://developer.android.com/courses/pathways/android-architecture&quot;&gt;learning pathway&lt;/a&gt; to help you consume this content in order and in a trackable way. Don’t miss the chance to learn all of this and get a badge as recognition!&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img width=&quot;600&quot; src=&quot;assets/images/2021-12-14-new-app-architecture_3.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;is-this-for-you&quot;&gt;Is this for you?&lt;/h3&gt;
+
+&lt;p&gt;If you’re a &lt;strong&gt;beginner&lt;/strong&gt;, you should begin by &lt;strong&gt;understanding the benefits&lt;/strong&gt; of having an app architecture and then follow these recommendations as a first approach to the topic. &lt;strong&gt;Intermediate and advanced&lt;/strong&gt; developers can &lt;strong&gt;follow&lt;/strong&gt; these recommendations and &lt;strong&gt;customize&lt;/strong&gt; them to their needs. In fact, our research suggests that most professional developers are already using these best practices.&lt;/p&gt;
+
+&lt;p&gt;You might be wondering if you should update your existing architecture to follow this recommendation, and the answer is no… or wait… it’s up to you. If your current architecture works for your team, you might want to stick with it. But you might also find patterns in our guides you can benefit from and incorporate into your app.&lt;/p&gt;
+
+&lt;h3 id=&quot;were-not-done-yet&quot;&gt;We’re not done yet&lt;/h3&gt;
+
+&lt;p&gt;This is the first batch of documents we’re releasing, with more to come in 2022. Help us make the guidance better! If you have any feedback on the current recommendations or if you want to see other architecture-related topics in them, let us know in our &lt;a href=&quot;https://issuetracker.google.com/issues/new?component=192697&amp;amp;template=845603&quot;&gt;docs issue tracker&lt;/a&gt;.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="architecture" />
+      
+
+      
+        <summary type="html">We just launched a revamped guide to app architecture.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">A Compose State of Mind</title>
+      <link href="https://manuelvivo.dev/a-compose-state-of-mind" rel="alternate" type="text/html" title="A Compose State of Mind" />
+      <published>2021-10-27T00:00:01+00:00</published>
+      <updated>2021-10-27T00:00:01+00:00</updated>
+      <id>https://manuelvivo.dev/a-compose-state-of-mind</id>
+      <content type="html" xml:base="https://manuelvivo.dev/a-compose-state-of-mind">&lt;p&gt;A Compose State of Mind — Android Dev Summit 2021 talk&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Jetpack Compose offers automatic state observation that recomposes or recreates your UI whenever state changes. Learn about Compose’s state model and the Composition, when to hoist state and create state holders or use AAC ViewModels, and how to mutate state when you’re outside the Composition safely so that these changes are tracked by Compose.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/rmv2ug-wW4U&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-docs&quot;&gt;Jetpack Compose documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-pathway&quot;&gt;Jetpack Compose pathway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-samples&quot;&gt;Jetpack Compose samples&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/jetpack/compose/state&quot;&gt;State in Compose documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/codelabs/jetpack-compose-state&quot;&gt;State in Compose codelab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="talks" />
+      
+        <category term="compose" />
+      
+
+      
+        <summary type="html">A Compose State of Mind — Android Dev Summit 2021 talk</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Kotlin Flows in practice</title>
+      <link href="https://manuelvivo.dev/kotlin-flows-in-practice" rel="alternate" type="text/html" title="Kotlin Flows in practice" />
+      <published>2021-10-27T00:00:00+00:00</published>
+      <updated>2021-10-27T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/kotlin-flows-in-practice</id>
+      <content type="html" xml:base="https://manuelvivo.dev/kotlin-flows-in-practice">&lt;p&gt;Kotlin Flows in practice — Android Dev Summit 2021 talk&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;With coroutines as the recommended solution for asynchronous operations, Kotlin Flow is the obvious choice for managing streams of data in Android apps. However, there are some lifecycle perils to consider and new lifecycle-aware APIs to understand in order to get the most out of Flows in Android. Learn about the powerful and expressive Flow APIs and how to use them across all layers of your app in a practical way—solving common use cases every developer can face.&lt;/p&gt;
+
+&lt;p&gt;Speakers: Manuel Vicente Vivo, Jose Alcérreca&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fSB6_KE95bU&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/kotlin/flow&quot;&gt;Kotlin Flows documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="talks" />
+      
+        <category term="coroutines" />
+      
+
+      
+        <summary type="html">Kotlin Flows in practice — Android Dev Summit 2021 talk</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">repeatOnLifecycle API design story</title>
+      <link href="https://manuelvivo.dev/repeatonlifecycle" rel="alternate" type="text/html" title="repeatOnLifecycle API design story" />
+      <published>2021-07-01T00:00:00+00:00</published>
+      <updated>2021-07-01T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/repeatonlifecycle</id>
+      <content type="html" xml:base="https://manuelvivo.dev/repeatonlifecycle">&lt;p&gt;Learn the design decisions behind the Lifecycle.repeatOnLifecycle API.&lt;/p&gt;
+
+&lt;p&gt;In this blog post, you’ll learn the design decisions behind the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; API and why we removed some of the helper functions we added in the first alpha version of the 2.4.0 &lt;a href=&quot;https://developer.android.com/jetpack/androidx/releases/lifecycle&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycle-runtime-ktx&lt;/code&gt;&lt;/a&gt; library.&lt;/p&gt;
+
+&lt;p&gt;Along the way, you’ll see how certain coroutines APIs can be dangerous to use in some scenarios, how difficult naming is, and why we decided to keep only the low-level suspend APIs in the library.&lt;/p&gt;
+
+&lt;p&gt;Also, you’ll realize all API decisions require some tradeoffs regarding complexity, readability, and how error prone the API is.&lt;/p&gt;
+
+&lt;p&gt;Special shout-out to &lt;a href=&quot;https://twitter.com/adamwp&quot;&gt;Adam Powell&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/wkalic&quot;&gt;Wojtek Kaliciński&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/ianhlake&quot;&gt;Ian Lake&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/yigitboyar&quot;&gt;Yigit Boyar&lt;/a&gt; for giving feedback and discussing the shape of these APIs.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: If you’re looking for &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; guidance, check out the &lt;a href=&quot;https://manuelvivo.dev/coroutines-addrepeatingjob&quot;&gt;A safer way to collect flows from Android UIs blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;repeatonlifecycle&quot;&gt;repeatOnLifecycle&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; API was primarily born to allow safer Flow collection from the UI layer in Android. Its restartable behavior, that takes into consideration the UI lifecycle, makes it the perfect default API to process items only when the UI is visible on the screen.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.repeatOnLifecycle&lt;/code&gt; is also available. It delegates the functionality to its Lifecycle. With this, any code that’s already part of a &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner&lt;/code&gt; scope can omit the explicit receiver.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; is a suspend function&lt;/strong&gt;. As such, it needs to be executed within a coroutine. &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; suspends the calling coroutine, and then runs a given suspend &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; that you pass as a parameter in a new coroutine each time the given lifecycle reaches a target state or higher. If the lifecycle state falls below the target, the coroutine launched for the &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; is cancelled. Lastly, the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; function itself won’t resume the calling coroutine until the lifecycle is &lt;code class=&quot;highlighter-rouge&quot;&gt;DESTROYED&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s see this API in action. If you read my previous &lt;a href=&quot;https://manuelvivo.dev/coroutines-addrepeatingjob&quot;&gt;A safer way to collect flows from Android UIs blog post&lt;/a&gt;, none of this should come as a surprise to you.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Create a new coroutine from the lifecycleScope&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// since repeatOnLifecycle is a suspend function&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Suspend the coroutine until the lifecycle is DESTROYED.&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// repeatOnLifecycle launches the block in a new coroutine every time the &lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// Safely collect from locations when the lifecycle is STARTED&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// and stop collecting when the lifecycle is STOPPED&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;someLocationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Note: at this point, the lifecycle is DESTROYED!&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: if you’re interested in how &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; is implemented, here’s a &lt;a href=&quot;https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-ktx/src/main/java/androidx/lifecycle/RepeatOnLifecycle.kt;l=63&quot;&gt;link to its source code&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;why-its-a-suspend-function&quot;&gt;Why it’s a suspend function&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;A suspend function is the best choice&lt;/strong&gt; for this restarting behavior as it preserves the calling context. It &lt;em&gt;respects&lt;/em&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;Job&lt;/code&gt; tree of the calling coroutine. As &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt;’s implementation uses &lt;code class=&quot;highlighter-rouge&quot;&gt;suspendCancellableCoroutine&lt;/code&gt; under the hood, it cooperates with cancellation: cancelling the calling coroutine also cancels &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; and its restarting &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, we can add more APIs on top of &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; such as the &lt;a href=&quot;https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-ktx/src/main/java/androidx/lifecycle/FlowExt.kt;l=87&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt;&lt;/a&gt; flow operator. More importantly, it also allows you to create helper functions on top of this API if that’s what your project needs. That’s what we tried to do with the &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.addRepeatingJob&lt;/code&gt; API that we added in &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycle-runtime-ktx:2.4.0-alpha01&lt;/code&gt; and, in fact, removed in &lt;code class=&quot;highlighter-rouge&quot;&gt;alpha02&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;removing-the-addrepeatingjob-api&quot;&gt;Removing the addRepeatingJob API&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.addRepeatingJob&lt;/code&gt; API added in the first alpha version of the library with this functionality, and now removed from the library, was implemented like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addRepeatingJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;coroutineContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineContext&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyCoroutineContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;suspend&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Unit&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coroutineContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Given a &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner&lt;/code&gt;, you could run a suspend block that restarts whenever its lifecycle moves in and out of the target state. This API uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope&lt;/code&gt; to trigger a new coroutine and call &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; inside it.&lt;/p&gt;
+
+&lt;p&gt;The code above would look like this using the &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; API:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;lifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addRepeatingJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;someLocationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At first glance, you might think that this code is cleaner and requires less code. However, there are hidden gotchas that can make you shoot yourself in the foot if you don’t pay close attention:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Even though &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; takes a suspend block, &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; is &lt;strong&gt;NOT&lt;/strong&gt; a suspend function. Thus, you shouldn’t call it inside a coroutine!!!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Less code? You only save one line of code with the cost of having a more error-prone API.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first point might seem obvious but it always bites developers. And ironically, it’s actually based on one of the most conceptually core concepts of coroutines: &lt;a href=&quot;https://elizarov.medium.com/structured-concurrency-722d765aa952&quot;&gt;&lt;strong&gt;Structured Concurrency&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; is not a suspend function, and therefore, doesn’t support structured concurrency by default (note that you could manually make it support it by using the &lt;code class=&quot;highlighter-rouge&quot;&gt;coroutineContext&lt;/code&gt; that it takes as a parameter). Since the &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; parameter is a suspend lambda, you relate this API to coroutines and you could easily write dangerous code like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;job&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+            &lt;span class=&quot;nf&quot;&gt;doSomeSuspendInitWork&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// DANGEROUS! This API doesn't preserve the calling Context!&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// It won't get cancelled when the parent coroutine is cancelled!&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;addRepeatingJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;someLocationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// If something goes wrong, cancel the coroutine launched above&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;What’s wrong with this code? &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; does coroutines stuff, nothing prevents me from calling it inside a coroutine, right?&lt;/p&gt;
+
+&lt;p&gt;As &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; creates new coroutines to run the repeating block using &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope&lt;/code&gt; which is implicit in the implementation details, the new coroutines don’t respect structured concurrency nor preserve the calling coroutine context. Therefore, will NOT get canceled when you call &lt;code class=&quot;highlighter-rouge&quot;&gt;job.cancel()&lt;/code&gt;. &lt;strong&gt;This can lead to very subtle bugs in your app which are really difficult to debug&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;repeatonlifecycle-ftw&quot;&gt;repeatOnLifecycle FTW&lt;/h2&gt;
+
+&lt;p&gt;The implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; used inside &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; is what makes the API unsafe to use in certain situations. It’s the hidden gotcha that requires extra attention to write correct code. This point is the recurring argument to avoid additional wrapper APIs on top of &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; in the library.&lt;/p&gt;
+
+&lt;p&gt;The main benefit of the suspend &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; API is that it cooperates with structured concurrency by default, whereas &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; did not. It also helps you think in which scope you want the repeating job to happen. The API is self-explanatory and meets developer expectations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;As any other suspend function, it will suspend the execution of the coroutine until something happens. In this case, until the lifecycle is destroyed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;No surprises! It can be used in conjunction with other coroutines code and it’ll behave as you expect.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The code surrounding &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; is readable and makes sense for newcomers: &lt;em&gt;“First, I launch a new coroutine that follows the UI lifecycle. Then, I call repeatOnLifecycle that launches this block every time the UI reaches this lifecycle state”&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;flowflowwithlifecycle&quot;&gt;Flow.flowWithLifecycle&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; operator (&lt;a href=&quot;https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-ktx/src/main/java/androidx/lifecycle/FlowExt.kt;l=87&quot;&gt;implementation here&lt;/a&gt;) is built on top of &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; and only emits items sent by the upstream flow whenever the lifecycle is at least at &lt;code class=&quot;highlighter-rouge&quot;&gt;minActiveState&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;someLocationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locations&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flowWithLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Even though this API also comes with some gotchas to be aware of, we decided to keep it in as it’s useful as a Flow operator. For example, it can be &lt;a href=&quot;https://manuelvivo.dev/coroutines-addrepeatingjob#safe-flow-collection-in-jetpack-compose&quot;&gt;easily used in Jetpack Compose&lt;/a&gt;. Even though you could achieve the same functionality in Compose by using the &lt;a href=&quot;https://developer.android.com/jetpack/compose/side-effects#producestate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;produceState&lt;/code&gt;&lt;/a&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; API, we left this API in the library as an alternative to a more reactive approach.&lt;/p&gt;
+
+&lt;p&gt;The gotcha, as it’s documented in the KDoc, is that the order in which you add the &lt;code class=&quot;highlighter-rouge&quot;&gt;flowWithLifecycle&lt;/code&gt; operator matters. Operators applied before the &lt;code class=&quot;highlighter-rouge&quot;&gt;flowWithLifecycle&lt;/code&gt; operator will be cancelled when the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycle&lt;/code&gt; is below &lt;code class=&quot;highlighter-rouge&quot;&gt;minActiveState&lt;/code&gt;. However, operators applied &lt;em&gt;after&lt;/em&gt; won’t be cancelled even though no items are sent.&lt;/p&gt;
+
+&lt;p&gt;For the most curious ones, this API name takes the &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowOn(CoroutineContext)&lt;/code&gt; operator as a precedent since &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; changes the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineContext&lt;/code&gt; used to collect the upstream flow while leaving the downstream unaffected.&lt;/p&gt;
+
+&lt;h2 id=&quot;should-we-add-an-additional-api&quot;&gt;Should we add an additional API?&lt;/h2&gt;
+
+&lt;p&gt;Given that we already have the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.repeatOnLifecycle&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; APIs. Should we add any other API?&lt;/p&gt;
+
+&lt;p&gt;New APIs can introduce as much confusion as problems they’d solve. There are multiple ways to support different use cases, and the shortest path depends greatly on the surrounding code. What might work for your project, might not work for others.&lt;/p&gt;
+
+&lt;p&gt;This is why we don’t want to provide APIs for all the possible cases, the more APIs available, the more confusing it will be for developers to know &lt;em&gt;what&lt;/em&gt; to use &lt;em&gt;when&lt;/em&gt;. Therefore, we made the decision of just keeping the most low-level APIs. Sometimes, less is more.&lt;/p&gt;
+
+&lt;h2 id=&quot;naming-is-important-and-difficult&quot;&gt;Naming is important (and difficult)&lt;/h2&gt;
+
+&lt;p&gt;It’s not only about which use cases we support, but also, how to name them! Names should comply with developers’ expectations and follow the Kotlin coroutines conventions. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the API starts a new coroutine using an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; (for example the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope&lt;/code&gt; used implicitly in &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt;), this must be reflected in the name to avoid false expectations! In this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;launch&lt;/code&gt; should be somehow included in the name.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;collect&lt;/code&gt; is a suspend function. Don’t prefix an API name with &lt;code class=&quot;highlighter-rouge&quot;&gt;collect&lt;/code&gt; if it’s not a suspend function.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Compose’s &lt;code class=&quot;highlighter-rouge&quot;&gt;collectAsState&lt;/code&gt; API is a special case whose name we’re ok with. It cannot be confused for a suspend function since there’s no such thing as a &lt;code class=&quot;highlighter-rouge&quot;&gt;@Composable suspend fun&lt;/code&gt; in Compose.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Even the &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.addRepeatingJob&lt;/code&gt; API was a tough one to name. As it creates new coroutines with &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope&lt;/code&gt;, it should’ve been prefixed with &lt;code class=&quot;highlighter-rouge&quot;&gt;launch&lt;/code&gt;. However, we wanted to disassociate the fact that coroutines were used under the hood, and since it adds a new lifecycle observer, the name was more consistent with the rest of other LifecycleOwner APIs.&lt;/p&gt;
+
+&lt;p&gt;The name was also somewhat influenced by the existing &lt;a href=&quot;https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleCoroutineScope&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleCoroutineScope.launchWhenX&lt;/code&gt;&lt;/a&gt; suspending APIs. As &lt;code class=&quot;highlighter-rouge&quot;&gt;launchWhenStarted&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle(STARTED)&lt;/code&gt; provide completely different functionality (&lt;code class=&quot;highlighter-rouge&quot;&gt;launchWhenStarted&lt;/code&gt; suspends the execution of the coroutine, and &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; cancels and restarts a new coroutine), if the names of the new APIs were similar (for example, using &lt;code class=&quot;highlighter-rouge&quot;&gt;launchWhenever&lt;/code&gt; for the restarting APIs), developers could’ve got confused and even use them interchangeably without noticing.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-liner-flow-collection&quot;&gt;One-liner flow collection&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;observe&lt;/code&gt; function is lifecycle aware and only processes emissions when the lifecycle is at least started. If you’re migrating from LiveData to Kotlin flows, you might think that having a one-line replacement is a good idea! You could remove boilerplate code and the migration is straightforward.&lt;/p&gt;
+
+&lt;p&gt;As such, you can do as &lt;a href=&quot;https://twitter.com/ianhlake&quot;&gt;Ian Lake&lt;/a&gt; did when he first started playing around with the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; APIs. He created a convenience wrapper called &lt;code class=&quot;highlighter-rouge&quot;&gt;collectIn&lt;/code&gt; like the following (to follow the naming conventions discussed above, I’m renaming it to be &lt;code class=&quot;highlighter-rouge&quot;&gt;launchAndCollectIn&lt;/code&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launchAndCollectIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;minActiveState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;crossinline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;suspend&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Unit&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minActiveState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So that you could call it from the UI like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;someLocationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launchAndCollectIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This wrapper, as nice and straightforward it might look in this example, suffers from the same problems we mentioned earlier regarding &lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleOwner.addRepeatingJob&lt;/code&gt;. It doesn’t respect the calling context and can be dangerous to use inside other coroutines. Furthermore, the original name is really misleading: &lt;code class=&quot;highlighter-rouge&quot;&gt;collectIn&lt;/code&gt; is not a suspend function! As mentioned before, developers expect &lt;code class=&quot;highlighter-rouge&quot;&gt;collect&lt;/code&gt; functions to suspend. Maybe, a better name for this wrapper could be &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.launchAndCollectIn&lt;/code&gt; to prevent bad usages.&lt;/p&gt;
+
+&lt;h2 id=&quot;wrapper-in-iosched&quot;&gt;Wrapper in iosched&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; must be used with the &lt;code class=&quot;highlighter-rouge&quot;&gt;viewLifecycleOwner&lt;/code&gt; in Fragments. In the open source Google I/O app, the &lt;a href=&quot;https://github.com/google/iosched&quot;&gt;iosched&lt;/a&gt; project, the team decided to create a wrapper to avoid misusages of the API in Fragments with a very explicit API name: &lt;a href=&quot;https://github.com/google/iosched/blob/main/mobile/src/main/java/com/google/samples/apps/iosched/util/UiUtils.kt#L60&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Fragment.launchAndRepeatWithViewLifecycle&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: The implementation is very similar to the &lt;code class=&quot;highlighter-rouge&quot;&gt;addRepeatingJob&lt;/code&gt; API. And when this was written using the &lt;code class=&quot;highlighter-rouge&quot;&gt;alpha01&lt;/code&gt; version of the library, the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; API lint checks that were added in &lt;code class=&quot;highlighter-rouge&quot;&gt;alpha02&lt;/code&gt; were not in place.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;do-you-need-a-wrapper&quot;&gt;Do you need a wrapper?&lt;/h2&gt;
+
+&lt;p&gt;If you need to create wrappers on top of the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; API to accommodate the most common use cases you might have in your app, ask yourself if you really need it, and why you need it. If you’re convinced and want to go forward, I’d suggest you choose a very explicit API name to clearly define what’s the wrapper’s behavior to avoid misusages. Also, document it very clearly so that newcomers can fully understand the implications of using it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I hope this blog post gave you an idea of what considerations the team had when deciding what to do with the &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; APIs and the potential helper methods we could add on top of it.&lt;/p&gt;
+
+&lt;p&gt;Again, thanks to &lt;a href=&quot;https://twitter.com/adamwp&quot;&gt;Adam Powell&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/wkalic&quot;&gt;Wojtek Kaliciński&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/ianhlake&quot;&gt;Ian Lake&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/yigitboyar&quot;&gt;Yigit Boyar&lt;/a&gt; for giving feedback and discussing the shape of these APIs.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="coroutines" />
+      
+
+      
+        <summary type="html">Learn the design decisions behind the Lifecycle.repeatOnLifecycle API.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Create an application CoroutineScope using Hilt</title>
+      <link href="https://manuelvivo.dev/coroutinescope-hilt" rel="alternate" type="text/html" title="Create an application CoroutineScope using Hilt" />
+      <published>2021-06-10T00:00:00+00:00</published>
+      <updated>2021-06-10T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/coroutinescope-hilt</id>
+      <content type="html" xml:base="https://manuelvivo.dev/coroutinescope-hilt">&lt;p&gt;Inject an application-scoped &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; using Hilt.&lt;/p&gt;
+
+&lt;p&gt;Following &lt;a href=&quot;https://developer.android.com/kotlin/coroutines/coroutines-best-practices&quot;&gt;coroutine’s best practices&lt;/a&gt;, you might need to inject an application-scoped &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; in some classes to &lt;a href=&quot;https://developer.android.com/kotlin/coroutines/coroutines-best-practices#create-coroutines-data-layer&quot;&gt;launch new coroutines that follow the app lifecycle or to make certain work outlive the caller’s scope&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this article, you’ll learn how to create an application-scoped &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; using Hilt, and how to inject it as a dependency. To further improve the way we work with Coroutines, we’ll see how to inject the different &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt;s and replace their implementations in tests.&lt;/p&gt;
+
+&lt;h2 id=&quot;manual-dependency-injection&quot;&gt;Manual dependency injection&lt;/h2&gt;
+
+&lt;p&gt;To create an &lt;a href=&quot;https://medium.com/androiddevelopers/scoping-in-android-and-hilt-c2e5222317c0&quot;&gt;application-scoped&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; following dependency injection (DI) best practices &lt;a href=&quot;https://developer.android.com/training/dependency-injection/manual&quot;&gt;manually&lt;/a&gt; without any library, you’d typically add a new variable to your application class with an instance of a &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt;. The same instance would be manually passed around when creating other objects.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyApplication&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Application-scoped types that any class in the app could access&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// using the applicationContext.&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;applicationScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;myRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applicationScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Since there isn’t a reliable way to know when the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt; is destroyed in Android, you don’t need to call &lt;code class=&quot;highlighter-rouge&quot;&gt;applicationScope.cancel()&lt;/code&gt; manually as the scope and all ongoing work will be destroyed when the application process finishes.&lt;/p&gt;
+
+&lt;p&gt;A better option for doing this manually is to create an &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplicationContainer&lt;/code&gt; class that holds the application-scoped types. This helps with separation of concerns since these &lt;em&gt;Container&lt;/em&gt; classes are responsible for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;handling the logic of &lt;em&gt;how&lt;/em&gt; to build certain types,&lt;/li&gt;
+  &lt;li&gt;holding container-scoped types instances, and&lt;/li&gt;
+  &lt;li&gt;returning instances of scoped and unscoped types.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationDiContainer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;applicationScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;myRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applicationScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyApplication&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;applicationDiContainer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationDiContainer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: A container always returns the same instance of a scoped type, and always returns a different instance for unscoped types. Scoping types to containers is &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#component-scopes&quot;&gt;costly&lt;/a&gt; since the scoped object stays in memory until the component is destroyed, so only scope what’s really needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplicationDiContainer&lt;/code&gt; example above, all types were scoped. If &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; didn’t need to be scoped to the application, we’d have:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationDiContainer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Scoped type. Same instance is always returned&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;applicationScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Unscoped type. Always returns a different instance&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getMyRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applicationScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-hilt-in-your-app&quot;&gt;Using Hilt in your app&lt;/h2&gt;
+
+&lt;p&gt;Hilt generates what you can see in &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplicationDiContainer&lt;/code&gt; (and more!) at compile time using annotations. Moreover, Hilt provides containers for &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#generated-components&quot;&gt;most Android framework classes&lt;/a&gt; not only for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;To set up Hilt in your app and create the container for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt; class, annotate your &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt; class with &lt;code class=&quot;highlighter-rouge&quot;&gt;@HiltAndroidApp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@HiltAndroidApp&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyApplication&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With this, the application DI container is ready to be used. We just need to let Hilt know how to provide instances of different types.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: In Hilt, Container classes are referenced as Components. The container associated with the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt; class is called &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonComponent&lt;/code&gt;. Check out the &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#generated-components&quot;&gt;list of all available Hilt components&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;construction-injection&quot;&gt;Construction injection&lt;/h2&gt;
+
+&lt;p&gt;Construction injection is the easiest way to let Hilt know how to provide instances of a type if we have access to the constructor of a class as we only need to annotate the constructor with &lt;code class=&quot;highlighter-rouge&quot;&gt;@Inject&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Singleton&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Scopes this type to the SingletonComponent&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@Inject&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This lets Hilt know that in order to provide an instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; class, an instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; needs to be passed as a dependency. Hilt generates code at compile time to make sure dependencies are satisfied and passed in when creating an instance of a type or give errors in case it doesn’t have enough information. &lt;code class=&quot;highlighter-rouge&quot;&gt;@Singleton&lt;/code&gt; is used to scope this class to the &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonContainer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point, Hilt doesn’t know how to satisfy the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; dependency because we haven’t told Hilt how to do that. The following sections will explain how we can let Hilt know what to pass as a dependency.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Hilt provides a different annotation to scope types to the different Hilt available components. Check out the &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#component-scopes&quot;&gt;list of all available component scopes&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;bindings&quot;&gt;Bindings&lt;/h2&gt;
+
+&lt;p&gt;A &lt;em&gt;binding&lt;/em&gt; is a commonly-used term in Hilt that denotes the &lt;strong&gt;information&lt;/strong&gt; Hilt knows about how to provide instances of a type as a dependency. We could say that we added a binding to Hilt with the &lt;code class=&quot;highlighter-rouge&quot;&gt;@Inject&lt;/code&gt; annotation of the code snippet above.&lt;/p&gt;
+
+&lt;p&gt;Bindings flow through &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#component-hierarchy&quot;&gt;Hilt’s components hierarchy&lt;/a&gt;. Bindings that are available in the &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonComponent&lt;/code&gt; are also available in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ActivityComponent&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bindings for unscoped types (an example of this could’ve been the &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; code above if it wasn’t annotated with &lt;code class=&quot;highlighter-rouge&quot;&gt;@Singleton&lt;/code&gt;), are available in all Hilt components. Bindings that are scoped to a component, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; that is annotated with &lt;code class=&quot;highlighter-rouge&quot;&gt;@Singleton&lt;/code&gt;, are available to the scoped component and the components below it in the hierarchy.&lt;/p&gt;
+
+&lt;h2 id=&quot;providing-types-with-modules&quot;&gt;Providing types with modules&lt;/h2&gt;
+
+&lt;p&gt;As mentioned above, we need to let Hilt know how to satisfy the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; dependency. However, &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; is an interface type that comes from an external library, so we cannot use constructor injection as we did before with the &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; class. The alternative is letting Hilt know what code to run when providing the instance of a type &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules&quot;&gt;using Modules&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@InstallIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SingletonComponent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutinesScopesModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Singleton&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Provide always the same instance &lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesCoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Run this code when providing an instance of CoroutineScope&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#inject-provides&quot;&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;@Provides&lt;/code&gt; method&lt;/a&gt; is annotated with &lt;code class=&quot;highlighter-rouge&quot;&gt;@Singleton&lt;/code&gt; to make Hilt always return the same instance of that &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt;. This is because any work that needs to follow the application lifetime should be created using the same instance of a &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; that follows the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application&lt;/code&gt;’s lifecycle.&lt;/p&gt;
+
+&lt;p&gt;Hilt modules are annotated with &lt;code class=&quot;highlighter-rouge&quot;&gt;@InstallIn&lt;/code&gt; that indicates in which Hilt component (and components below in the hierarchy) the binding is installed. In our case, as the application &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; is needed by &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; which is scoped to the &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonComponent&lt;/code&gt;, this binding needs to be installed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonComponent&lt;/code&gt; as well.&lt;/p&gt;
+
+&lt;p&gt;In Hilt jargon, we could say that we added a &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; binding, as now, Hilt knows how to provide instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, the code snippet above could be improved. &lt;a href=&quot;https://developer.android.com/kotlin/coroutines/coroutines-best-practices#inject-dispatchers&quot;&gt;Hardcoding dispatchers is a bad practice in coroutines&lt;/a&gt;, we should inject them to &lt;strong&gt;make them configurable and make testing easier&lt;/strong&gt;. Following the previous code, we can create a new Hilt module to let it know which Dispatcher to inject for each case: main, default, and IO.&lt;/p&gt;
+
+&lt;h2 id=&quot;providing-implementations-for-coroutinedispatcher&quot;&gt;Providing implementations for CoroutineDispatcher&lt;/h2&gt;
+
+&lt;p&gt;We have to provide different implementations for the same type: &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt;. In other words, we need different bindings for the same type.&lt;/p&gt;
+
+&lt;p&gt;We use &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#multiple-bindings&quot;&gt;&lt;em&gt;qualifiers&lt;/em&gt;&lt;/a&gt; to let Hilt know which binding, or implementation, to use each time. Qualifiers are just annotations that you and Hilt use to identify specific bindings. Let’s create one qualifier per &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; implementation:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// CoroutinesQualifiers.kt file&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DefaultDispatcher&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IoDispatcher&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainDispatcher&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;BINARY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainImmediateDispatcher&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, these qualifiers annotate the different &lt;code class=&quot;highlighter-rouge&quot;&gt;@Provides&lt;/code&gt; methods to identify a specific binding in Hilt modules. The &lt;code class=&quot;highlighter-rouge&quot;&gt;@DefaultDispatcher&lt;/code&gt; qualifier annotates the method that returns the default dispatcher, and so on.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@InstallIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SingletonComponent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutinesDispatchersModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@DefaultDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesDefaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Default&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@IoDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesIoDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;IO&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@MainDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesMainDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@MainImmediateDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesMainImmediateDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;immediate&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that these &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt;s don’t need to be scoped to the &lt;code class=&quot;highlighter-rouge&quot;&gt;SingletonComponent&lt;/code&gt;. Every time these dependencies are needed, Hilt calls the &lt;code class=&quot;highlighter-rouge&quot;&gt;@Provides&lt;/code&gt; method and returns the corresponding &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;providing-an-application-scoped-coroutinescope&quot;&gt;Providing an application-scoped CoroutineScope&lt;/h2&gt;
+
+&lt;p&gt;To get rid of the hardcoded &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; from our previous application-scoped &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; code, we need to inject the Hilt-provided default dispatcher. For that, we can pass in the type we want to inject, &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt;, using the corresponding qualifier, &lt;code class=&quot;highlighter-rouge&quot;&gt;@DefaultDispatcher&lt;/code&gt;, as a dependency in the method that provides the application &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@InstallIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SingletonComponent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutinesScopesModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Singleton&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesCoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nd&quot;&gt;@DefaultDispatcher&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As Hilt has multiple bindings for the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; type, we disambiguate it using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@DefaultDispatcher&lt;/code&gt; annotation when &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; is used as a dependency.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-qualifier-for-applicationscope&quot;&gt;A qualifier for ApplicationScope&lt;/h2&gt;
+
+&lt;p&gt;Even though we don’t need multiple bindings for &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; at the moment (this could change in the future if we ever need something like a &lt;code class=&quot;highlighter-rouge&quot;&gt;UserCoroutineScope&lt;/code&gt;), adding a qualifier to the application &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; helps with readability when injecting it as a dependency.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationRetention&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;annotation&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationScope&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@InstallIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SingletonComponent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutinesScopesModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Singleton&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ApplicationScope&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesCoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nd&quot;&gt;@DefaultDispatcher&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SupervisorJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As &lt;code class=&quot;highlighter-rouge&quot;&gt;MyRepository&lt;/code&gt; depends on this scope, it’s very clear which external scope uses as implementation:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Singleton&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyRepository&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@Inject&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ApplicationScope&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* ... */&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;replacing-dispatchers-for-instrumentation-tests&quot;&gt;Replacing Dispatchers for instrumentation tests&lt;/h2&gt;
+
+&lt;p&gt;We said before that we should inject dispatchers to make testing easier and have full control over what’s happening. For instrumentation tests, we’d want to make Espresso wait for coroutines to finish.&lt;/p&gt;
+
+&lt;p&gt;Instead of creating a custom &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; with some &lt;a href=&quot;https://developer.android.com/training/testing/espresso/idling-resource&quot;&gt;Espresso Idling resource&lt;/a&gt; to make it wait for the coroutines to finish, we can take advantage of the &lt;a href=&quot;https://developer.android.com/reference/android/os/AsyncTask&quot;&gt;AsyncTask&lt;/a&gt; API. Even though AsyncTask was deprecated in Android API 30, Espresso hooks into its thread pool to check for idleness. Therefore, any coroutine that should be executed in a background thread could be executed in the AsyncTask’s thread pool.&lt;/p&gt;
+
+&lt;p&gt;Use Hilt’s &lt;code class=&quot;highlighter-rouge&quot;&gt;TestInstallIn&lt;/code&gt; API to make Hilt provide a different implementation of a type in tests. Similar to how we provided the different Dispatchers above, we can create a new file under the &lt;code class=&quot;highlighter-rouge&quot;&gt;androidTest&lt;/code&gt; package to provide different implementations for those Dispatchers.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// androidTest/projectPath/TestCoroutinesDispatchersModule.kt file&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@TestInstallIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;components&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SingletonComponent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;replaces&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CoroutinesDispatchersModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TestCoroutinesDispatchersModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@DefaultDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesDefaultDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;AsyncTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;THREAD_POOL_EXECUTOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;asCoroutineDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@IoDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesIoDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;AsyncTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;THREAD_POOL_EXECUTOR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;asCoroutineDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@MainDispatcher&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Provides&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;providesMainDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineDispatcher&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dispatchers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With the code above, we’re making Hilt “forget” the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutinesDispatchersModule&lt;/code&gt; used in production code in tests. That module will be replaced with &lt;code class=&quot;highlighter-rouge&quot;&gt;TestCoroutinesDispatchersModule&lt;/code&gt; which uses the Async Task’s thread pool for work that needs to happen in the background, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Dispatchers.Main&lt;/code&gt; for work that needs to happen on the main thread which Espresso also waits for.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Warning: This implementation is obviously a hack that we’re not proud of. However, coroutines don’t currently integrate well with Espresso as there isn’t a way to know if a &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; is idle or not at the moment (&lt;a href=&quot;https://github.com/Kotlin/kotlinx.coroutines/issues/242&quot;&gt;Link to bug&lt;/a&gt;). &lt;code class=&quot;highlighter-rouge&quot;&gt;AsyncTask.THREAD_POOL_EXECUTOR&lt;/code&gt; is the best alternative to use at the moment since Espresso doesn’t use Idling resources to check if this executor is idle, Espresso uses a different heuristic that takes into account what’s in the message queue. That makes it a better option than something like &lt;a href=&quot;https://developer.android.com/reference/androidx/test/espresso/idling/concurrent/IdlingThreadPoolExecutor&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IdlingThreadPoolExecutor&lt;/code&gt;&lt;/a&gt; which unfortunately considers the thread pool idle when a coroutine is suspended due to how coroutines are compiled down to a state machine.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For more information about testing, check out &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-testing&quot;&gt;Hilt’s testing guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;In this article, you learnt how to create an application-scoped &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; using Hilt, inject it as a dependency, inject the different &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineDispatcher&lt;/code&gt; instances, and replace their implementations in tests.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="coroutines" />
+      
+        <category term="hilt" />
+      
+
+      
+        <summary type="html">Inject an application-scoped CoroutineScope using Hilt.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Using Jetpack libraries in Compose talk</title>
+      <link href="https://manuelvivo.dev/libraries-in-compose-talk" rel="alternate" type="text/html" title="Using Jetpack libraries in Compose talk" />
+      <published>2021-05-18T00:00:00+00:00</published>
+      <updated>2021-05-18T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/libraries-in-compose-talk</id>
+      <content type="html" xml:base="https://manuelvivo.dev/libraries-in-compose-talk">&lt;p&gt;Using Jetpack libraries in Compose - Google I/O 2021 talk.&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;Jetpack Compose integrates seamlessly with other Jetpack libraries. There’s no need to rewrite everything from scratch to start using Compose in your app. The UI code might change, but the rest of your app architecture remains intact. In this Session, we add Compose to an existing app that already uses ViewModel, LiveData/Flow, Paging, Room, Hilt, and Navigation! Learn how the libraries work with Compose, when to use ViewModels, and how to get the most out of Navigation Compose.&lt;/p&gt;
+
+&lt;p&gt;Speakers: Ian Lake, Manuel Vicente Vivo&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0z_dwBGQQWQ&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-pathway&quot;&gt;Compose Pathway&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-docs&quot;&gt;Compose documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://goo.gle/compose-samples&quot;&gt;Compose Samples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="talks" />
+      
+        <category term="compose" />
+      
+
+      
+        <summary type="html">Using Jetpack libraries in Compose - Google I/O 2021 talk.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Things to know about Flow’s shareIn and stateIn operators</title>
+      <link href="https://manuelvivo.dev/sharein-statein" rel="alternate" type="text/html" title="Things to know about Flow’s shareIn and stateIn operators" />
+      <published>2021-05-07T00:00:00+00:00</published>
+      <updated>2021-05-07T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/sharein-statein</id>
+      <content type="html" xml:base="https://manuelvivo.dev/sharein-statein">&lt;p&gt;Become familiar with the &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operators by example.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/share-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.shareIn&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.stateIn&lt;/code&gt;&lt;/a&gt; operators convert cold flows into hot flows: they can multicast the information that comes from a cold upstream flow to multiple collectors. They’re often used to improve performance, add a buffer when collectors are not present, or even as a caching mechanism.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Cold flows&lt;/strong&gt; are created on-demand and emit data when they’re being observed. &lt;strong&gt;Hot flows&lt;/strong&gt; are always active and can emit data regardless of whether or not they’re being observed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this blog post, you’ll become familiar with the &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operators by example. You’ll learn how to configure them to perform certain use cases and avoid common pitfalls you might encounter.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-underlying-flow-producer&quot;&gt;The underlying flow producer&lt;/h2&gt;
+
+&lt;p&gt;Continuing with the example from my &lt;a href=&quot;https://manuelvivo.dev/coroutines-addrepeatingjob&quot;&gt;previous blog post&lt;/a&gt;, the underlying flow producer that we’re using emits location updates. It’s a &lt;em&gt;cold&lt;/em&gt; flow, as it’s implemented using a &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt;&lt;/a&gt;. Every new collector will trigger the flow producer block, and a new callback will be added to the &lt;code class=&quot;highlighter-rouge&quot;&gt;FusedLocationProviderClient&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FusedLocationProviderClient&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationsSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callbackFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LocationCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onLocationResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;offer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;requestLocationUpdates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createLocationRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Looper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getMainLooper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addOnFailureListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// in case of exception, close the Flow&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// clean up when Flow collection ends&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;awaitClose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;removeLocationUpdates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s see how we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operators to optimize the &lt;code class=&quot;highlighter-rouge&quot;&gt;locationsSource&lt;/code&gt; flow for different use cases.&lt;/p&gt;
+
+&lt;h2 id=&quot;sharein-or-statein&quot;&gt;shareIn or stateIn?&lt;/h2&gt;
+
+&lt;p&gt;The first topic we’ll cover is the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; operator returns a &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt;&lt;/a&gt; instance whereas &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; returns a &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: To learn more about &lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt;, check out &lt;a href=&quot;https://developer.android.com/kotlin/flow/stateflow-and-sharedflow&quot;&gt;our documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; is a specialized configuration of &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt; optimized for sharing state: the last emitted item is replayed to new collectors, and items are conflated using &lt;a href=&quot;https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Any.equals&lt;/code&gt;&lt;/a&gt;. You can read more about this in the &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The main difference between these APIs is that the &lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; interface allows you to access the last emitted value synchronously by reading its &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; property. That’s not the case with &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;improving-performance&quot;&gt;Improving performance&lt;/h2&gt;
+
+&lt;p&gt;These APIs can improve performance by sharing the same instance of the flow to be observed by all collectors instead of creating new instances of the same flow on-demand.&lt;/p&gt;
+
+&lt;p&gt;In the following example, &lt;code class=&quot;highlighter-rouge&quot;&gt;LocationRepository&lt;/code&gt; consumes the &lt;code class=&quot;highlighter-rouge&quot;&gt;locationsSource&lt;/code&gt; flow exposed by the &lt;code class=&quot;highlighter-rouge&quot;&gt;LocationDataSource&lt;/code&gt; and applies the shareIn operator to make everyone interested in the user’s location collect from the same instance of the flow. Only one instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;locationsSource&lt;/code&gt; flow is created and shared for all collectors:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locationsSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shareIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WhileSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/-while-subscribed.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WhileSubscribed&lt;/code&gt;&lt;/a&gt; sharing policy is used to cancel the upstream flow when there are no collectors. In this way, we avoid wasting resources when no one is interested in location updates.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Tip for Android apps!&lt;/strong&gt; You can use &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WhileSubscribed(5000)&lt;/code&gt;&lt;/strong&gt; most of the time to keep the upstream flow active for 5 seconds more after the disappearance of the last collector. That avoids restarting the upstream flow in certain situations such as configuration changes. This tip is especially helpful when upstream flows are expensive to create and when these operators are used in ViewModels.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;buffering-events&quot;&gt;Buffering events&lt;/h2&gt;
+
+&lt;p&gt;For this example, our requirements have changed, and now we’re asked to always listen for location updates and display the last 10 locations on the screen when the app comes from the background:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locationsSource&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shareIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SharingStarted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Eagerly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replay&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We use a &lt;code class=&quot;highlighter-rouge&quot;&gt;replay&lt;/code&gt; value of 10 to keep the last 10 emitted items in memory and re-emit those every time a collector observes the flow. To keep the underlying flow active all the time and emitting location updates, use the &lt;code class=&quot;highlighter-rouge&quot;&gt;SharingStarted.Eagerly&lt;/code&gt; policy to listen for updates even if there are no collectors.&lt;/p&gt;
+
+&lt;h2 id=&quot;caching-data&quot;&gt;Caching data&lt;/h2&gt;
+
+&lt;p&gt;Our requirements have changed again, and in this case, we don’t need to be &lt;em&gt;always&lt;/em&gt; listening for location updates if the app is in the background. However, we need to cache the last emitted item so that the user always sees some data on the screen, even if stale, while getting the current location. For this case, we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operator.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;locationDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locationsSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;stateIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WhileSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmptyLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.stateIn&lt;/code&gt; caches and replays the last emitted item to a new collector.&lt;/p&gt;
+
+&lt;h2 id=&quot;watch-out-do-not-create-new-instances-on-each-function-call&quot;&gt;WATCH OUT! Do not create new instances on each function call&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;NEVER&lt;/strong&gt; use &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; to create a new flow that’s returned when calling a function. That’d create a new &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; on each function invocation that will remain in memory until the scope is cancelled or is garbage collected when there are no references to it.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;userLocalDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserLocalDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CoroutineScope&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// DO NOT USE shareIn or stateIn in a function like this.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// It creates a new SharedFlow/StateFlow per invocation which is not reused!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;userLocalDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shareIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WhileSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;    
+
+    &lt;span class=&quot;c1&quot;&gt;// DO USE shareIn or stateIn in a property&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;userLocalDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shareIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;externalScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WhileSubscribed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;flows-that-require-input&quot;&gt;Flows that require input&lt;/h2&gt;
+
+&lt;p&gt;Flows that require input, like a &lt;code class=&quot;highlighter-rouge&quot;&gt;userId&lt;/code&gt;, cannot be shared easily using &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt;. Taking as an example the &lt;a href=&quot;https://github.com/google/iosched&quot;&gt;iosched&lt;/a&gt; open-source project — Google I/O’s Android app — the flow to get user events from &lt;a href=&quot;https://firebase.google.com/docs/firestore/quickstart&quot;&gt;Firestore&lt;/a&gt; is implemented using a &lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt;, as you can see &lt;a href=&quot;https://github.com/google/iosched/blob/main/shared/src/main/java/com/google/samples/apps/iosched/shared/data/userevent/FirestoreUserEventDataSource.kt#L107&quot;&gt;in the source code&lt;/a&gt;. As it takes the &lt;code class=&quot;highlighter-rouge&quot;&gt;userId&lt;/code&gt; as a parameter, this flow cannot be reused easily using the &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operators.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;userEventsDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FirestoreUserEventDataSource&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// New collectors will register as a new callback in Firestore.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// As this function depends on a `userId`, the flow cannot be&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// reused by calling shareIn or stateIn in this function.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// That will cause a new Shared/StateFlow to be created&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// every time the function is called.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getUserEvents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;UserEventsResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;userLocalDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getObservableUserEvents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;userId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Optimizing this use case depends on the requirements of your app:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do you allow receiving events from multiple users at the same time? You might need to create a map of &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; instances, and remove the reference and cancel the upstream flow when the &lt;code class=&quot;highlighter-rouge&quot;&gt;subscriptionCount&lt;/code&gt; reaches zero.&lt;/li&gt;
+  &lt;li&gt;If you allow only one user, and all collectors need to update to the new user, you could emit event updates to a common &lt;code class=&quot;highlighter-rouge&quot;&gt;SharedFlow&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; for all collectors and use the common flow as a variable in the class.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;stateIn&lt;/code&gt; operators can be used with cold flows to improve performance, add a buffer when collectors are not present, or even as a caching mechanism! Use them wisely, and don’t create new instances on each function call — it won’t work as you’d expect!&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="coroutines" />
+      
+
+      
+        <summary type="html">Become familiar with the shareIn and stateIn operators by example.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Hilt is stable! Easier dependency injection on Android</title>
+      <link href="https://manuelvivo.dev/hilt-stable" rel="alternate" type="text/html" title="Hilt is stable! Easier dependency injection on Android" />
+      <published>2021-05-04T00:00:00+00:00</published>
+      <updated>2021-05-04T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/hilt-stable</id>
+      <content type="html" xml:base="https://manuelvivo.dev/hilt-stable">&lt;p&gt;Hilt, Jetpack’s recommended dependency injection (DI) solution for Android apps, is already stable!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android&quot;&gt;Hilt&lt;/a&gt;, Jetpack’s recommended &lt;a href=&quot;https://developer.android.com/training/dependency-injection&quot;&gt;dependency injection (DI)&lt;/a&gt; solution for Android apps, is already &lt;strong&gt;stable&lt;/strong&gt;! That means Hilt is fully ready to be used &lt;strong&gt;in production&lt;/strong&gt;. Hilt is simpler than Dagger, enables you to write less boilerplate code, it’s designed for Android and has integration with multiple Jetpack libraries. Several companies have already started taking advantage of Hilt in their apps.&lt;/p&gt;
+
+&lt;p&gt;Hilt was &lt;a href=&quot;https://manuelvivo.dev/di-with-hilt&quot;&gt;first released&lt;/a&gt; as alpha in June 2020 with the mission of defining a &lt;strong&gt;standard way&lt;/strong&gt; to do DI in your Android apps and since then, we’ve received tons of feedback from developers. That not only improved the library, but also, it let us know that we’re working on the right problems.&lt;/p&gt;
+
+&lt;p&gt;Instead of creating dependency graphs by hand, and manually injecting and passing around types where needed, Hilt automatically generates all that code for you at compile time by means of annotations. Hilt can help you &lt;strong&gt;get the most out of DI best practices&lt;/strong&gt; in your app by doing the hard work and &lt;strong&gt;generating all that boilerplate&lt;/strong&gt; you would’ve needed to write otherwise. Also, as it’s fully integrated with Android, Hilt manages the lifecycle of the dependency graphs associated with the Android framework classes automatically for you.&lt;/p&gt;
+
+&lt;p&gt;Let’s see Hilt in action with a quick example! After &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android#setup&quot;&gt;setting Hilt up&lt;/a&gt;, using it in your project from scratch to inject a ViewModel in an Activity is as easy as adding few annotations to your code as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@HiltAndroidApp&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Setup Hilt in your app&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyApplication&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Make Hilt aware of this ViewModel&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@HiltViewModel&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoginViewModel&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@Inject&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;savedStateHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SavedStateHandle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/* ... Other dependencies Hilt takes care of ... */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;// Make the activity use the right ViewModel factory and&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// inject other dependencies&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@AndroidEntryPoint&lt;/span&gt; 
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoginActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;loginViewModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LoginViewModel&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;viewModels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// loginViewModel is ready to be used&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apart from what’s mentioned above, why should you use Hilt in your Android app?&lt;/p&gt;
+
+&lt;h2 id=&quot;simpler-than-dagger&quot;&gt;Simpler than Dagger&lt;/h2&gt;
+
+&lt;p&gt;Hilt is built on top of the popular DI library &lt;a href=&quot;https://developer.android.com/training/dependency-injection/dagger-basics&quot;&gt;Dagger&lt;/a&gt; so benefits from the compile time correctness, runtime performance, scalability, and &lt;a href=&quot;https://manuelvivo.dev/dagger-hilt-navigation-android-studio&quot;&gt;Android Studio support&lt;/a&gt; that Dagger provides. Some Dagger annotations, such as @Inject to tell Dagger and Hilt how to provide an instance of a type, are often used in Hilt. But Hilt is simpler than Dagger!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“I highly recommend leveraging Dagger for dependency injection in Android applications. However, pure vanilla Dagger can lead to too much room for creativity. When that gets mixed with the complexity of the various lifecycle-aware components that are part of Android development, there’s plenty of room for pitfalls such as memory leaks: for example, accidentally passing in Activity-scoped dependencies into ViewModels. Hilt being opinionated and designed specifically for Android helps you avoid some of the pitfalls when using vanilla Dagger.”&lt;/em&gt; — &lt;a href=&quot;https://twitter.com/mhernand40&quot;&gt;Marcelo Hernandez&lt;/a&gt;, Staff Software Engineer, Tinder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you’re already using Dagger in your app and want to migrate to Hilt… fear not! Dagger and Hilt can coexist together, apps can be &lt;a href=&quot;https://dagger.dev/hilt/migration-guide&quot;&gt;migrated&lt;/a&gt; on an as-needed basis.&lt;/p&gt;
+
+&lt;h2 id=&quot;less-boilerplate&quot;&gt;Less boilerplate&lt;/h2&gt;
+
+&lt;p&gt;Hilt is opinionated — this means that it makes decisions for you so that you have less code to write. Hilt defines standard components, or dependency graphs, fully integrated with Android framework classes such as Application, activities, fragments, and views. As well as scope annotations to scope instances of types to those components.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“Hilt automatically generates the test application and test component via @HiltAndroidTest. We were able to remove between 20% and 40% of boilerplate wire up test code after migrating to Hilt!”&lt;/em&gt; — Jusun Lee, Software Engineer, YouTube&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“We are only scratching the surface in terms of migrating to Hilt. However, in one of the modules we migrated to Hilt, we saw +78/-182 in terms of lines changed for this library.”&lt;/em&gt; — Marcelo Hernandez, Staff Software Engineer, Tinder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;designed-for-android&quot;&gt;Designed for Android&lt;/h2&gt;
+
+&lt;p&gt;As opposed to Dagger that is a dependency injection solution for the Java programming language applications, Hilt solely works in Android apps. Some annotations such as &lt;code class=&quot;highlighter-rouge&quot;&gt;@HiltAndroidApp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;@AndroidEntryPoint&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;@HiltViewModel&lt;/code&gt; are specific to Hilt and define an opinionated way to do DI on Android.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“Hilt finally offers built-in Android lifecycle aware Dagger components. With Hilt, we can solely focus on Dagger @Modules without having to worry about Components, Subcomponents, the Component provider pattern, and so on.”&lt;/em&gt; — Marcelo Hernandez, Staff Software Engineer, Tinder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;standardization-of-components-and-bindings&quot;&gt;Standardization of components and bindings&lt;/h2&gt;
+
+&lt;p&gt;For those that know about Dagger, Hilt simplifies the dependency graph by using a &lt;a href=&quot;https://dagger.dev/hilt/monolithic&quot;&gt;monolithic component system&lt;/a&gt; to generate less code at compile time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“With Hilt’s monolithic component system, binding definitions are provided once and shared across all classes that use that component. This is a big win as previously, YouTube used a polylithic component system where modules were manually wired-up into custom components and there were many duplicate binding definitions.”&lt;/em&gt; — Jusun Lee, Software Engineer, YouTube&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“As our Gradle modules separation allows for feature development in isolation, it became easy to be too creative when using Dagger. We’ve found that migrating those modules over to Hilt has actually exposed flaws in which we were inadvertently violating the separation of concerns.”&lt;/em&gt; — Marcelo Hernandez, Staff Software Engineer, Tinder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;integration-with-other-jetpack-libraries&quot;&gt;Integration with other Jetpack libraries&lt;/h2&gt;
+
+&lt;p&gt;You can use your favourite Jetpack libraries with Hilt out of the box. We provide direct injection support for &lt;strong&gt;ViewModel, WorkManager, Navigation, and Compose&lt;/strong&gt; so far.&lt;/p&gt;
+
+&lt;p&gt;Learn more about Jetpack support in the &lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-jetpack&quot;&gt;docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;“I really appreciate how Hilt works out of the box with ViewModels and how it eliminates the boilerplate of having to set up a ViewModel.Factory provider with vanilla Dagger.”&lt;/em&gt; — Marcelo Hernandez, Staff Software Engineer, Tinder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;resources-to-learn-hilt&quot;&gt;Resources to learn Hilt&lt;/h2&gt;
+
+&lt;p&gt;Hilt is Jetpack’s recommended DI solution for Android apps. To learn more about it and start using it in your apps, check out these resources:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Learn about the benefits of dependency injection &lt;a href=&quot;https://developer.android.com/training/dependency-injection&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/training/dependency-injection/hilt-android&quot;&gt;Documentation&lt;/a&gt; to learn how to use Hilt in your app.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dagger.dev/hilt/migration-guide&quot;&gt;Migration guide&lt;/a&gt; from Dagger to Hilt.&lt;/li&gt;
+  &lt;li&gt;Codelabs to learn Hilt in a step-by-step approach: &lt;a href=&quot;https://codelabs.developers.google.com/codelabs/android-hilt&quot;&gt;Using Hilt in your Android app&lt;/a&gt; and &lt;a href=&quot;https://codelabs.developers.google.com/codelabs/android-dagger-to-hilt&quot;&gt;Migrating from Dagger to Hilt&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Code samples! Check out Hilt in action in the &lt;a href=&quot;https://github.com/google/iosched&quot;&gt;Google I/O 2020&lt;/a&gt; and &lt;a href=&quot;https://github.com/android/sunflower/&quot;&gt;Sunflower&lt;/a&gt; apps.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/images/training/dependency-injection/hilt-annotations.pdf&quot;&gt;Cheat sheet&lt;/a&gt; to quickly see &lt;em&gt;what&lt;/em&gt; the different Hilt and Dagger annotations do and &lt;em&gt;how&lt;/em&gt; to use them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Huge thanks to &lt;a href=&quot;https://twitter.com/mhernand40&quot;&gt;Marcelo Hernandez&lt;/a&gt; from the Android Tinder team, and Jusun Lee from the Android YouTube team for taking the time to talk about how and why they’re adopting Hilt in their apps.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="hilt" />
+      
+
+      
+        <summary type="html">Hilt, Jetpack’s recommended dependency injection (DI) solution for Android apps, is already stable!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">A safer way to collect flows from Android UIs</title>
+      <link href="https://manuelvivo.dev/coroutines-addrepeatingjob" rel="alternate" type="text/html" title="A safer way to collect flows from Android UIs" />
+      <published>2021-03-26T00:00:00+00:00</published>
+      <updated>2021-03-26T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/coroutines-addrepeatingjob</id>
+      <content type="html" xml:base="https://manuelvivo.dev/coroutines-addrepeatingjob">&lt;p&gt;Learn how to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; API to safely collect flows from the UI layer in Android.&lt;/p&gt;
+
+&lt;p&gt;In an Android app, &lt;a href=&quot;https://developer.android.com/kotlin/flow&quot;&gt;Kotlin flows&lt;/a&gt; are typically collected from the UI layer to display data updates on the screen. However, you want to collect these flows making sure you’re not doing more work than necessary, wasting resources (both CPU and memory) or leaking data when the view goes to the background.&lt;/p&gt;
+
+&lt;p&gt;In this article, you’ll learn how the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; APIs protect you from wasting resources and why they’re a good default to use for flow collection in the UI layer.&lt;/p&gt;
+
+&lt;h2 id=&quot;wasting-resources&quot;&gt;Wasting resources&lt;/h2&gt;
+
+&lt;p&gt;It’s &lt;a href=&quot;https://developer.android.com/kotlin/coroutines/coroutines-best-practices#coroutines-data-layer&quot;&gt;recommended&lt;/a&gt; to expose the &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow&amp;lt;T&amp;gt;&lt;/code&gt; API from lower layers of your app hierarchy regardless of the flow producer implementation details. However, you should also collect them safely.&lt;/p&gt;
+
+&lt;p&gt;A cold flow backed by a &lt;a href=&quot;https://kotlinlang.org/docs/channels.html&quot;&gt;channel&lt;/a&gt; or using operators with buffers such as &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/buffer.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;buffer&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/conflate.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;conflate&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/flow-on.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;flowOn&lt;/code&gt;&lt;/a&gt;, or &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/share-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shareIn&lt;/code&gt;&lt;/a&gt; is &lt;strong&gt;not safe to collect&lt;/strong&gt; with some of the existing APIs such as &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope.launch&lt;/code&gt;&lt;/a&gt;, &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/launch-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow&amp;lt;T&amp;gt;.launchIn&lt;/code&gt;&lt;/a&gt;, or &lt;a href=&quot;https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleCoroutineScope&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LifecycleCoroutineScope.launchWhenX&lt;/code&gt;&lt;/a&gt;, unless you manually cancel the &lt;code class=&quot;highlighter-rouge&quot;&gt;Job&lt;/code&gt; that started the coroutine when the activity goes to the background. These APIs will keep the underlying flow producer active while emitting items into the buffer in the background, and thus wasting resources.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: A &lt;strong&gt;cold&lt;/strong&gt; flow is a type of flow that executes the producer block of code on-demand when a new subscriber collects.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For example, consider this flow that emits Location updates using &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Implementation of a cold flow backed by a Channel that sends Location updates&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FusedLocationProviderClient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callbackFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LocationCallback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onLocationResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;offer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lastLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;requestLocationUpdates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;createLocationRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Looper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;getMainLooper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;addOnFailureListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// in case of exception, close the Flow&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// clean up when Flow collection ends&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;awaitClose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;removeLocationUpdates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Internally, &lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt; uses a &lt;a href=&quot;https://kotlinlang.org/docs/reference/coroutines/channels.html&quot;&gt;channel&lt;/a&gt;, which is conceptually very similar to a blocking &lt;a href=&quot;https://en.wikipedia.org/wiki/Queue_(abstract_data_type)&quot;&gt;queue&lt;/a&gt;, and has a default capacity of 64 elements.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Collecting this flow from the UI layer using any of the aforementioned APIs keeps the flow emitting locations even if the view is not displaying them in the UI! See the example below:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Collects from the flow when the View is at least STARTED and&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// SUSPENDS the collection when the lifecycle is STOPPED.&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Collecting the flow cancels when the View is DESTROYED.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launchWhenStarted&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;locationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Same issue with:&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// - lifecycleScope.launch { /* Collect from locationFlow() here */ }&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// - locationProvider.locationFlow().onEach { /* ... */ }.launchIn(lifecycleScope)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope.launchWhenStarted&lt;/code&gt; suspends the execution of the coroutine. New locations are not processed, but the &lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt; producer keeps sending locations nonetheless. Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope.launch&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;launchIn&lt;/code&gt; APIs are even more dangerous as the view keeps consuming locations even if it’s in the background! Which could potentially make your app crash.&lt;/p&gt;
+
+&lt;p&gt;To solve this issue with these APIs, you’d need to manually cancel collection when the view goes to the background to cancel the &lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt; and avoid the location provider emitting items and wasting resources. For example, you could do something like the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Coroutine listening for Locations&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationUpdatesJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;locationUpdatesJob&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;locationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Stop collecting when the View goes to the background&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;locationUpdatesJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onStop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s a good solution, but that’s boilerplate, friends! And if there’s a universal truth about Android developers, it’s that we absolutely detest writing boilerplate code. One of the biggest benefits of not having to write boilerplate code is that with less code, there are fewer chances of making a mistake!&lt;/p&gt;
+
+&lt;h2 id=&quot;lifecyclerepeatonlifecycle&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/h2&gt;
+
+&lt;p&gt;Now that we all are on the same page and know where the problem lies, it’s time to come up with a solution. The solution needs to be 1) simple, 2) friendly or easy to remember/understand, and more importantly 3) safe! It should work for all use cases regardless of the flow implementation details.&lt;/p&gt;
+
+&lt;p&gt;Without further ado, the API you should use is &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt;&lt;/strong&gt; available in the &lt;a href=&quot;https://developer.android.com/jetpack/androidx/releases/lifecycle&quot;&gt;&lt;em&gt;lifecycle-runtime-ktx&lt;/em&gt;&lt;/a&gt; library.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: This API is available in the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01&lt;/code&gt; library or later.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Take a look at the following code:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Create a new coroutine since repeatOnLifecycle is a suspend function&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// The block passed to repeatOnLifecycle is executed when the lifecycle&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// is at least STARTED and is cancelled when the lifecycle is STOPPED.&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// It automatically restarts the block when the lifecycle is STARTED again.&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// Safely collect from locationFlow when the lifecycle is STARTED&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// and stops collection when the lifecycle is STOPPED&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;locationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; is a suspend function that takes a &lt;a href=&quot;https://developer.android.com/reference/android/arch/lifecycle/Lifecycle.State&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.State&lt;/code&gt;&lt;/a&gt; as a parameter that is used to &lt;strong&gt;automatically create and launch a new coroutine&lt;/strong&gt; with the block passed to it when the lifecycle reaches that &lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt;, and &lt;strong&gt;cancel the ongoing coroutine&lt;/strong&gt; when the lifecycle falls below the &lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This avoids any boilerplate code since the associated code to cancel the coroutine when it’s no longer needed is automatically done by &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt;. As you could guess, it’s recommended to call this API in the activity’s &lt;code class=&quot;highlighter-rouge&quot;&gt;onCreate&lt;/code&gt; or fragment’s &lt;code class=&quot;highlighter-rouge&quot;&gt;onViewCreated&lt;/code&gt; methods to avoid unexpected behaviors. See the example below using fragments:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationFragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Fragment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onViewCreated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;viewLifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;viewLifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;locationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: Fragments should always use the &lt;code class=&quot;highlighter-rouge&quot;&gt;viewLifecycleOwner&lt;/code&gt; to trigger UI updates. However, that’s not the case for &lt;code class=&quot;highlighter-rouge&quot;&gt;DialogFragment&lt;/code&gt;s which might not have a View sometimes. For &lt;code class=&quot;highlighter-rouge&quot;&gt;DialogFragment&lt;/code&gt;s, you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleOwner&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: This API is available in the &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01&lt;/code&gt; library or later.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;under-the-hood&quot;&gt;Under the hood&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; suspends the calling coroutine, re-launches the block when the lifecycle moves in and out of the target &lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt; in a &lt;em&gt;new&lt;/em&gt; coroutine, and &lt;strong&gt;resumes the calling coroutine when the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle&lt;/code&gt; is destroyed&lt;/strong&gt;. This last point is very important: the coroutine that calls &lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; won’t resume executing until the lifecycle is destroyed.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Create a coroutine&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            
+            &lt;span class=&quot;n&quot;&gt;lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;repeatOnLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RESUMED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// Repeat when the lifecycle is RESUMED, cancel when PAUSED&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// `lifecycle` is DESTROYED when the coroutine resumes. repeatOnLifecycle&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// suspends the execution of the coroutine until the lifecycle is DESTROYED.&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;visual-diagram&quot;&gt;Visual diagram&lt;/h2&gt;
+
+&lt;p&gt;Circling back to the beginning, collecting &lt;code class=&quot;highlighter-rouge&quot;&gt;locationFlow&lt;/code&gt; directly from a coroutine started with &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleScope.launch&lt;/code&gt; is dangerous since the collection keeps happening even when the View is in the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;repeatOnLifecycle&lt;/code&gt; prevents you from wasting resources and app crashes because it stops and restarts the flow collection when the lifecycle moves in and out of the target state.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/2021-03-26-coroutines-addrepeatingjob_2.png&quot; alt=&quot;img&quot; /&gt;
+&lt;small&gt;Difference between using and not using the repeatOnLifecycle API.&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;flowflowwithlifecycle&quot;&gt;Flow.flowWithLifecycle&lt;/h2&gt;
+
+&lt;p&gt;You can also use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; operator when you have only one flow to collect. This API uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; API under the hood, and emits items and cancels the underlying producer when the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle&lt;/code&gt; moves in and out of the target state.&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocationActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;locationProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flowWithLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onEach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// New location! Update the map&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;launchIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycleScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: This API name takes the &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowOn(CoroutineContext)&lt;/code&gt; operator as a precedent since &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; changes the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineContext&lt;/code&gt; used to collect the upstream flow while leaving the downstream unaffected. Also, similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;flowOn&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; adds a buffer in case the consumer doesn’t keep up with the producer. This is due to the fact that its implementation uses a &lt;code class=&quot;highlighter-rouge&quot;&gt;callbackFlow&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;configuring-the-underlying-producer&quot;&gt;Configuring the underlying producer&lt;/h2&gt;
+
+&lt;p&gt;Even if you use these APIs, watch out for hot flows that could waste resources even if they aren’t collected by anyone! There are some valid use cases for them, but do keep that in mind and document it if needed. Having the underlying flow producer active in the background, even if wasting resources, can be beneficial for some use cases: you instantly have fresh data available rather than &lt;em&gt;catching up&lt;/em&gt; and temporarily showing stale data. &lt;strong&gt;Depending on the use case, decide whether the producer needs to be always active or not&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;MutableStateFlow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;MutableSharedFlow&lt;/code&gt; APIs expose a &lt;code class=&quot;highlighter-rouge&quot;&gt;subscriptionCount&lt;/code&gt; field that you can use to stop the underlying producer when &lt;code class=&quot;highlighter-rouge&quot;&gt;subscriptionCount&lt;/code&gt; is zero. By default, they will keep the producer active as long as the object that holds the flow instance is in memory. There are some valid use cases for this though, for example, a &lt;code class=&quot;highlighter-rouge&quot;&gt;UiState&lt;/code&gt; exposed from the ViewModel to the UI using &lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt;. That’s ok! This use case demands the ViewModel to always provide the latest UI state to the View.&lt;/p&gt;
+
+&lt;p&gt;Similarly, the &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.stateIn&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/share-in.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.shareIn&lt;/code&gt;&lt;/a&gt; operators can be configured with the &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/index.html&quot;&gt;sharing started policy&lt;/a&gt; for this. &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/-while-subscribed.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WhileSubscribed()&lt;/code&gt;&lt;/a&gt; will stop the underlying producer when there are no active observers! On the contrary, &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/-eagerly.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Eagerly&lt;/code&gt;&lt;/a&gt; or &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/-lazily.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lazily&lt;/code&gt;&lt;/a&gt; will keep the underlying producer active as long as the &lt;code class=&quot;highlighter-rouge&quot;&gt;CoroutineScope&lt;/code&gt; they use is active.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: The APIs shown in this article are a good default to collect flows from the UI and should be used regardless of the flow implementation detail. These APIs do what they need to do: stop collecting if the UI isn’t visible on screen. It’s up to the flow implementation if it should be always active or not.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;safe-flow-collection-in-jetpack-compose&quot;&gt;Safe Flow collection in Jetpack Compose&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#collectasstate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.collectAsState&lt;/code&gt;&lt;/a&gt; function is used in Compose to collect flows from composables and represent the values as &lt;a href=&quot;https://developer.android.com/reference/kotlin/androidx/compose/runtime/State&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;State&amp;lt;T&amp;gt;&lt;/code&gt;&lt;/a&gt; to be able to update Compose UI. Even if Compose doesn’t recompose the UI when the host activity or fragment is in the background, the flow producer is still active and can waste resources. Compose can suffer from the same problem as the View system.&lt;/p&gt;
+
+&lt;p&gt;When collecting flows in Compose, use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; operator as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Composable&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LocationScreen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;lifecycleOwner&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LocalLifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;locationFlowLifecycleAware&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;remember&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;locationFlow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flowWithLifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycleOwner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lifecycle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;State&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;STARTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;locationFlowLifecycleAware&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collectAsState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Current location, do something with it&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that you &lt;a href=&quot;https://developer.android.com/jetpack/compose/state&quot;&gt;need to &lt;code class=&quot;highlighter-rouge&quot;&gt;remember&lt;/code&gt;&lt;/a&gt; the flow that is aware of the lifecycle with &lt;code class=&quot;highlighter-rouge&quot;&gt;locationFlow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;lifecycleOwner&lt;/code&gt; as keys to always use the same flow unless one of the keys change.&lt;/p&gt;
+
+&lt;p&gt;In Compose, side effects must be performed in a &lt;a href=&quot;https://developer.android.com/jetpack/compose/lifecycle#state-effect-use-cases&quot;&gt;controlled environment&lt;/a&gt;. For that, use &lt;a href=&quot;https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#launchedeffect_1&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LaunchedEffect&lt;/code&gt;&lt;/a&gt; to create a coroutine that follows the composable’s lifecycle. In its block, you could call the suspend &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; if you need it to re-launch a block of code when the host lifecycle is in a certain &lt;code class=&quot;highlighter-rouge&quot;&gt;State&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;comparison-with-livedata&quot;&gt;Comparison with LiveData&lt;/h2&gt;
+
+&lt;p&gt;You might’ve noticed that this API behaves similarly to &lt;a href=&quot;https://developer.android.com/topic/libraries/architecture/livedata&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt;&lt;/a&gt;, and that’s true! &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt; is aware of Lifecycle, and its restarting behavior makes it ideal for observing streams of data from the UI. And that’s also the case for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; APIs!&lt;/p&gt;
+
+&lt;p&gt;Collecting flows using these APIs is a natural replacement for &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt; in &lt;em&gt;Kotlin-only&lt;/em&gt; apps. If you use these APIs for flow collection, &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt; doesn’t offer any benefits over coroutines and flow. Even more, flows are more flexible since they can be collected from any &lt;code class=&quot;highlighter-rouge&quot;&gt;Dispatcher&lt;/code&gt; and they can be powered with &lt;a href=&quot;https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/&quot;&gt;all its operators&lt;/a&gt;. As opposed to &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt;, which has limited operators available and whose values are always observed from the UI thread.&lt;/p&gt;
+
+&lt;h3 id=&quot;stateflow-support-in-data-binding&quot;&gt;StateFlow support in data binding&lt;/h3&gt;
+
+&lt;p&gt;On a different note, one of the reasons you might be using &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveData&lt;/code&gt; is because it’s supported by data binding. Well, so is &lt;a href=&quot;https://developer.android.com/kotlin/flow/stateflow-and-sharedflow&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt;&lt;/a&gt;! For more information about &lt;code class=&quot;highlighter-rouge&quot;&gt;StateFlow&lt;/code&gt; support in data binding, &lt;a href=&quot;https://developer.android.com/topic/libraries/data-binding/observability#stateflow&quot;&gt;check out the official documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Lifecycle.repeatOnLifecycle&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Flow.flowWithLifecycle&lt;/code&gt; APIs to safely collect flows from the UI layer in Android.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="coroutines" />
+      
+
+      
+        <summary type="html">Learn how to use the Lifecycle.repeatOnLifecycle API to safely collect flows from the UI layer in Android.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Cómo la música ha influenciado mi carrera</title>
+      <link href="https://manuelvivo.dev/musas-interview" rel="alternate" type="text/html" title="Cómo la música ha influenciado mi carrera" />
+      <published>2021-02-28T00:00:00+00:00</published>
+      <updated>2021-02-28T00:00:00+00:00</updated>
+      <id>https://manuelvivo.dev/musas-interview</id>
+      <content type="html" xml:base="https://manuelvivo.dev/musas-interview">&lt;p&gt;Entrevista sobre cómo la música, la trompeta 🎺 y Las Musas me han influenciado en mi carrera como ingeniero Android.&lt;/p&gt;
+
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+&lt;p&gt;«El ❤️ de Las Musas» es una serie de entrevistas a personas que han estado (y están) relacionadas, de alguna forma, con &lt;a href=&quot;https://www.lasmusas.es&quot;&gt;Las Musas de Guadalupe&lt;/a&gt;. En ellas conoceremos su trayectoria, y cómo sintieron su paso por esta casa.&lt;/p&gt;
+
+&lt;p&gt;Este domingo tenemos con nosotros a Manuel Vicente Vivo, antiguo trompetista de esta familia y, en la actualidad, Android Developer Relations Enginner at Google.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/omnZx3Q8NZ0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Manuel Vivo</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="spanish" />
+      
+
+      
+        <summary type="html">Entrevista sobre cómo la música, la trompeta 🎺 y Las Musas me han influenciado en mi carrera como ingeniero Android.</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
